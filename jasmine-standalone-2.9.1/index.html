@@ -1,33 +1,46 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Tiny Tiny Holger</title>
-    <script src="src/person.js"></script>
-    <script src="src/bmi_calculator.js"></script>
-    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-  </head>
-  <body>
-    <form>
-      <input type="text" id="weight" placeholder="Weight">
-      <input type="text" id="height" placeholder="Height">
-      <input type="button" id="calculate" value="Calculate">
-    </form>
-    <div>
-      <span id="display_value"></span>
-      <span id="display_message"></span>
-    </div>
-    <script type="text/javascript">
-  $(document).ready(function () {
-    $('#calculate').click(function () {
-      var w = parseFloat($('#weight').val());
-      var h = parseFloat($('#height').val());
-      var person = new Person({weight: w, height: h});
-      person.calculate_bmi();
-      $('#display_value').html('Your BMI is ' + person.bmiValue);
-      $('#display_message').html('and you are '+ person.bmiMessage);
+
+<head>
+  <meta charset="utf-8">
+  <title>Tiny Tiny Holger</title>
+  <script src="src/person.js"></script>
+  <script src="src/bmi_calculator.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+</head>
+<body>
+  <form>
+    <input type="text" id="weight" placeholder="Weight">
+    <input type="text" id="height" placeholder="Height">
+    <select name="Selection" id="selection">
+      <option value="metric">Metric</option>
+      <option value="imperial">Imperial</option>
+    </select>
+    <input type="button" id="calculate" value="Calculate">
+  </form>
+  <div>
+    <span id="display_value"></span>
+    <span id="display_message"></span>
+  </div>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#calculate').click(function() {
+        var w = parseFloat($('#weight').val());
+        var h = parseFloat($('#height').val());
+        var s = document.getElementById("selection").value;
+        var person = new Person({
+          weight: w,
+          height: h,
+          selection: s
+        });
+        person.calculate_bmi();
+
+        $('#display_value').html('Your BMI is ' + person.bmiValue);
+        $('#display_message').html('and you are ' + person.bmiMessage);
+      });
     });
-  });
-</script>
-  </body>
+  </script>
+</body>
+
 </html>
