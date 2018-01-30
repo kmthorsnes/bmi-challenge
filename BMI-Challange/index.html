@@ -66,10 +66,8 @@
       <div class="col">
         <span id="display_value"></span>
         <span id="display_message"></span>
+        <span id="display_image"></span>
       </div>
-
-    </div>
-    <div>
     </div>
 
   </div>
@@ -92,8 +90,11 @@
         person.calculate_bmi();
 
         $('#display_value').html('Your BMI is ' + person.bmiValue);
-        $('#display_message').html('and you are <strong>' + person.bmiMessage
-        + '</strong><br /><img src="img/' + person.bmiImage + '" width="300" />');
+        $('#display_message').html('and you are <strong>' + person.bmiMessage);
+        if(person.bmiImage != undefined) {
+          $('#display_image').html('</strong><br /><img src="img/'
+           + person.bmiImage + '" width="50%"/>');
+        }
           // ' <br /><img src="/img/' + obj.bmiImage + '" width="300" /><br />');
       });
     });

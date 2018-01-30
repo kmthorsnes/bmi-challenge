@@ -17,10 +17,10 @@ function setBMIMessage(obj) {
     obj.bmiMessage = "obese";
     obj.bmiImage = "obese.png";
   }
-  if (obj.bmiValue = undefined) {
-    obj.bmiMessage = "undefined";
-    obj.bmiImage = "xena-undefined.png";
-  }
+  // if (obj.bmiValue = undefined) {
+  //   obj.bmiMessage = "undefined";
+  //   obj.bmiImage = "xena-undefined.png";
+  // }
 
 }
 
