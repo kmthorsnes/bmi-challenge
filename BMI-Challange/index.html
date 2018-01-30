@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -17,6 +16,7 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="js/scripts.js"></script>
 </head>
 
 <body>
@@ -54,12 +54,6 @@
               <button type="button" class="btn btn-success btn-lg btn-block" id="calculate">Calculate</button>
             </div>
           </div>
-
-          <!-- <input type="text" id="weight" placeholder="Weight">
-        <input type="text" id="height" placeholder="Height"> -->
-
-
-          <!-- <input type="button" id="calculate" value="Calculate"> -->
         </form>
 
         <span id="display_tips"></span>
@@ -74,54 +68,6 @@
     </div>
 
   </div>
-
-  <script type="text/javascript">
-    function feetAndInchesToInches(he) {
-      let inches = (he % 1).toFixed(1);
-      let feet = (he - inches);
-      let height = ((feet * 12) + (inches * 100));
-      return height; // Function returns the product of a and b
-    }
-
-    $(document).ready(function() {
-      document.getElementById('selection').addEventListener('change', function() {
-        document.getElementById('weight').setAttribute('placeholder',
-          this.options[this.selectedIndex].getAttribute('data-ph-w'));
-        document.getElementById('height').setAttribute('placeholder',
-          this.options[this.selectedIndex].getAttribute('data-ph-h'));
-      });
-    });
-
-    $(document).ready(function() {
-      $('#calculate').click(function() {
-        var s = document.getElementById("selection").value;
-        var w = parseFloat($('#weight').val());
-        var h = parseFloat($('#height').val());
-        if (s == 'imperial') {
-          h = feetAndInchesToInches(h)
-        }
-        var person = new Person({
-          weight: w,
-          height: h,
-          selection: s
-        });
-        person.calculate_bmi();
-
-        $('#display_value').html('Your BMI is ' + person.bmiValue);
-        $('#display_message').html('and you are ' + person.bmiMessage);
-        //$('#display_tips').html(person.bmiTips);
-        if (person.bmiImage != undefined) {
-          $('#display_image').html('<br /><img src="img/' +
-            person.bmiImage + '" width="50%"/>');
-        }
-        if (person.bmiTips != undefined) {
-          $('#display_tips').html('<br /><h5>Sponsored tip for you</h5>\
-          <img style="border: 1px solid #eeeeee; padding: 10px;"\
-           src="img/' + person.bmiTips + '" width="50%"/>');
-        }
-      });
-    });
-  </script>
 </body>
 
 </html>
