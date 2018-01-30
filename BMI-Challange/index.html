@@ -33,19 +33,19 @@
           <div class="form-group">
             <label class="mr-sm-2" for="inlineFormCustomSelect">Select metric or imperial</label>
             <select name="Selection" class="form-control" id="selection">
-              <option value="metric">Metric</option>
-              <option value="imperial">Imperial</option>
+              <option data-ph-w="Weight in kg" data-ph-h="Height in cm" value="metric">Metric</option>
+              <option data-ph-w="Weight in pounds" data-ph-h="Height in feet and inches" value="imperial">Imperial</option>
             </select>
           </div>
 
           <div class="form-row">
             <div class="col">
               <label class="mr-sm-2" for="inlineFormCustomSelect">Add your weight</label>
-              <input type="text" class="form-control" id="weight" placeholder="Weight">
+              <input type="text" class="form-control" id="weight" placeholder="Weight in kg">
             </div>
             <div class="col">
               <label class="mr-sm-2" for="inlineFormCustomSelect">Add your height</label>
-              <input type="text" class="form-control" id="height" placeholder="Height">
+              <input type="text" class="form-control" id="height" placeholder="Height in cm">
             </div>
           </div>
 
@@ -73,9 +73,18 @@
   </div>
 
   <script type="text/javascript">
-    // $(document).ready(function() {
-    //   $('#weight').html(placeholder ="hello");
-    // });
+
+    $(document).ready(function() {
+      document.getElementById('selection').addEventListener('change', function() {
+      document.getElementById('weight').setAttribute('placeholder',
+      this.options[this.selectedIndex].getAttribute('data-ph-w'));
+      document.getElementById('height').setAttribute('placeholder',
+      this.options[this.selectedIndex].getAttribute('data-ph-h'));
+    });
+    });
+
+
+
 
     $(document).ready(function() {
       $('#calculate').click(function() {
@@ -95,7 +104,6 @@
           $('#display_image').html('<br /><img src="img/'
            + person.bmiImage + '" width="50%"/>');
         }
-          // ' <br /><img src="/img/' + obj.bmiImage + '" width="300" /><br />');
       });
     });
   </script>
