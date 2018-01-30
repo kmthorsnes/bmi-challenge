@@ -28,6 +28,7 @@ BMICalculator.prototype.metric_bmi = function(obj) {
   var weight = obj.weight;
   var height = obj.height;
   var selection = obj.selection;
+
   if (weight > 0 && height > 0) {
     if (selection == "metric") {
       var finalBmi = weight / (height / 100 * height / 100);
