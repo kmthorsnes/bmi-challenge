@@ -2,16 +2,17 @@ function BMICalculator() {};
 
 function setBMIMessage(obj) {
   if (obj.bmiValue < 18.5) {
-    obj.bmiMessage = "Underweight"
+    // obj.bmiImage = "elf-clipart-12.png";
+    obj.bmiMessage = "Underweight";
   }
   if (obj.bmiValue > 18.5 && obj.bmiValue < 25) {
-    obj.bmiMessage = "Normal"
+    obj.bmiMessage = "Normal";
   }
   if (obj.bmiValue > 25 && obj.bmiValue < 30) {
-    obj.bmiMessage = "Overweight"
+    obj.bmiMessage = "Overweight";
   }
   if (obj.bmiValue > 30) {
-    obj.bmiMessage = "Obese"
+    obj.bmiMessage = "Obese";
   }
 }
 
@@ -23,8 +24,8 @@ BMICalculator.prototype.metric_bmi = function(obj) {
     if (selection == "metric") {
       var finalBmi = weight / (height / 100 * height / 100);
     } else if (selection == "imperial") {
-        var finalBmi = ((weight / (height * height)) * 703);
-      }
+      var finalBmi = ((weight / (height * height)) * 703);
+    }
     obj.bmiValue = parseFloat(finalBmi.toFixed(2));
     setBMIMessage(obj);
   }

@@ -2,28 +2,83 @@
 <html>
 
 <head>
+  <!-- Required meta tags -->
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Tiny Tiny Holger</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css" />
+  
+  <!-- Scripts -->
   <script src="src/person.js"></script>
   <script src="src/bmi_calculator.js"></script>
-  <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
+
 <body>
-  <form>
-    <input type="text" id="weight" placeholder="Weight">
-    <input type="text" id="height" placeholder="Height">
-    <select name="Selection" id="selection">
-      <option value="metric">Metric</option>
-      <option value="imperial">Imperial</option>
-    </select>
-    <input type="button" id="calculate" value="Calculate">
-  </form>
-  <div>
-    <span id="display_value"></span>
-    <span id="display_message"></span>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>BMI-Calculator</h1>
+        <p>This is our BMI-Calculator</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <form>
+          <div class="form-group">
+            <label class="mr-sm-2" for="inlineFormCustomSelect">Select metric or imperial</label>
+            <select name="Selection" class="form-control" id="selection">
+              <option value="metric">Metric</option>
+              <option value="imperial">Imperial</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="col">
+              <label class="mr-sm-2" for="inlineFormCustomSelect">Add your weight</label>
+              <input type="text" class="form-control" id="weight" placeholder="Weight">
+            </div>
+            <div class="col">
+              <label class="mr-sm-2" for="inlineFormCustomSelect">Add your height</label>
+              <input type="text" class="form-control" id="height" placeholder="Height">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-lg-12" style="padding-top: 20px;">
+              <button type="button" class="btn btn-success btn-lg btn-block" id="calculate">Calculate</button>
+            </div>
+          </div>
+
+          <!-- <input type="text" id="weight" placeholder="Weight">
+        <input type="text" id="height" placeholder="Height"> -->
+
+
+          <!-- <input type="button" id="calculate" value="Calculate"> -->
+        </form>
+      </div>
+
+      <div class="col">
+        <span id="display_value"></span>
+        <span id="display_message"></span>
+      </div>
+
+    </div>
+    <div>
+    </div>
+
   </div>
 
   <script type="text/javascript">
+    // $(document).ready(function() {
+    //   $('#weight').html(placeholder ="hello");
+    // });
+
     $(document).ready(function() {
       $('#calculate').click(function() {
         var w = parseFloat($('#weight').val());
@@ -37,7 +92,8 @@
         person.calculate_bmi();
 
         $('#display_value').html('Your BMI is ' + person.bmiValue);
-        $('#display_message').html('and you are ' + person.bmiMessage);
+        $('#display_message').html('and you are ' + person.bmiMessage +
+          ' <br /><img src="/img/elf-clipart-12.png" width="300" /><br />');
       });
     });
   </script>

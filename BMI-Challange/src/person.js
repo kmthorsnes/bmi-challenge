@@ -2,6 +2,7 @@ function Person(attr) {
   this.weight = attr.weight;
   this.height = attr.height;
   this.selection = attr.selection;
+  // this.image = attr.image;
 };
 
 Person.prototype.calculate_bmi = function() {
