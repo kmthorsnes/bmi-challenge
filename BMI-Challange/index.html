@@ -34,7 +34,7 @@
             <label class="mr-sm-2" for="inlineFormCustomSelect">Select metric or imperial</label>
             <select name="Selection" class="form-control" id="selection">
               <option data-ph-w="Weight in kg" data-ph-h="Height in cm" value="metric">Metric</option>
-              <option data-ph-w="Weight in pounds" data-ph-h="Height in feet and inches" value="imperial">Imperial</option>
+              <option data-ph-w="Weight in pounds" data-ph-h="Height in feet and inches (5.10)" value="imperial">Imperial</option>
             </select>
           </div>
 
@@ -67,6 +67,7 @@
         <span id="display_value"></span>
         <span id="display_message"></span>
         <span id="display_image"></span>
+        <!--<span id="display_input"></span>-->
       </div>
     </div>
 
@@ -83,14 +84,16 @@
     });
     });
 
-
-
-
     $(document).ready(function() {
       $('#calculate').click(function() {
+        var s = document.getElementById("selection").value;
         var w = parseFloat($('#weight').val());
         var h = parseFloat($('#height').val());
-        var s = document.getElementById("selection").value;
+        if(s == 'imperial') {
+            inches = (h % 1).toFixed(1);
+            feet = (h - inches);
+            h = ((feet * 12) + (inches * 100));
+          }
         var person = new Person({
           weight: w,
           height: h,
@@ -98,6 +101,7 @@
         });
         person.calculate_bmi();
 
+        //$('#display_input').html('input height is: ' + h)
         $('#display_value').html('Your BMI is ' + person.bmiValue);
         $('#display_message').html('and you are ' + person.bmiMessage);
         if(person.bmiImage != undefined) {
