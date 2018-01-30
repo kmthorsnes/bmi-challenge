@@ -32,7 +32,7 @@ BMICalculator.prototype.metric_bmi = function(obj) {
     if (selection == "metric") {
       var finalBmi = weight / (height / 100 * height / 100);
     } else if (selection == "imperial") {
-      var finalBmi = ((weight / (height * height)) * 703);
+      finalBmi = ((weight / (height * height)) * 703);
     }
     obj.bmiValue = parseFloat(finalBmi.toFixed(2));
     setBMIMessage(obj);

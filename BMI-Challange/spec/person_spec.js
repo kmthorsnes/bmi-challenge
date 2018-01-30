@@ -4,7 +4,8 @@ describe("Person", function() {
   beforeEach(function() {
     person = new Person({
       weight: 90,
-      height: 186
+      height: 186,
+      selection: 'metric'
     });
   });
 
@@ -23,6 +24,6 @@ describe("Person", function() {
 
   it("should have a BMI Message", function() {
     person.calculate_bmi();
-    expect(person.bmiMessage).toEqual("Overweight")
+    expect(person.bmiMessage).toEqual("overweight")
   });
 });

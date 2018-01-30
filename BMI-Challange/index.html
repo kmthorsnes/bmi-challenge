@@ -90,9 +90,9 @@
         person.calculate_bmi();
 
         $('#display_value').html('Your BMI is ' + person.bmiValue);
-        $('#display_message').html('and you are <strong>' + person.bmiMessage);
+        $('#display_message').html('and you are ' + person.bmiMessage);
         if(person.bmiImage != undefined) {
-          $('#display_image').html('</strong><br /><img src="img/'
+          $('#display_image').html('<br /><img src="img/'
            + person.bmiImage + '" width="50%"/>');
         }
           // ' <br /><img src="/img/' + obj.bmiImage + '" width="300" /><br />');

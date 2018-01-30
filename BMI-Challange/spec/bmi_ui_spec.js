@@ -5,6 +5,7 @@ describe('BMI_UI - index.html', function() {
         $.holdReady(false);
         $('#weight').val('90');
         $('#height').val('186');
+        $('#selection').val('metric')
         $('#calculate').trigger('click');
     });
 
@@ -13,6 +14,6 @@ describe('BMI_UI - index.html', function() {
     });
 
     it("displays BMI Message", function() {
-        expect($('#display_message').text()).toBe('and you are Overweight');
+        expect($('#display_message').text()).toBe('and you are overweight');
     });
 });
