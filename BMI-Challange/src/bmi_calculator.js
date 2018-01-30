@@ -4,23 +4,23 @@ function setBMIMessage(obj) {
   if (obj.bmiValue < 18.5) {
     obj.bmiMessage = "underweight";
     obj.bmiImage = "elf-clipart-12.png";
+    obj.bmiTips = "onlinepizza.png";
   }
   if (obj.bmiValue > 18.5 && obj.bmiValue < 25) {
     obj.bmiMessage = "normal";
     obj.bmiImage = "normal.png";
+    obj.bmiTips = "sfbio.png";
   }
   if (obj.bmiValue > 25 && obj.bmiValue < 30) {
     obj.bmiMessage = "overweight";
     obj.bmiImage = "overweight.png";
+    obj.bmiTips = "wieght-watchers.png";
   }
   if (obj.bmiValue > 30) {
     obj.bmiMessage = "obese";
     obj.bmiImage = "obese.png";
+    obj.bmiTips = "fatcamp.png";
   }
-  // if (obj.bmiValue = undefined) {
-  //   obj.bmiMessage = "undefined";
-  //   obj.bmiImage = "xena-undefined.png";
-  // }
 
 }
 

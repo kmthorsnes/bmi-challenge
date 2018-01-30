@@ -61,13 +61,15 @@
 
           <!-- <input type="button" id="calculate" value="Calculate"> -->
         </form>
+
+        <span id="display_tips"></span>
+
       </div>
 
       <div class="col">
         <span id="display_value"></span>
         <span id="display_message"></span>
         <span id="display_image"></span>
-        <!--<span id="display_input"></span>-->
       </div>
     </div>
 
@@ -101,13 +103,18 @@
         });
         person.calculate_bmi();
 
-        //$('#display_input').html('input height is: ' + h)
         $('#display_value').html('Your BMI is ' + person.bmiValue);
         $('#display_message').html('and you are ' + person.bmiMessage);
+        //$('#display_tips').html(person.bmiTips);
         if(person.bmiImage != undefined) {
           $('#display_image').html('<br /><img src="img/'
            + person.bmiImage + '" width="50%"/>');
         }
+        if(person.bmiTips != undefined) {
+          $('#display_tips').html('<br /><h5>Sponsored tip for you</h5>\
+          <img style="border: 1px solid #eeeeee; padding: 10px;"\
+           src="img/' + person.bmiTips + '" width="50%"/>');
+         }
       });
     });
   </script>
