@@ -10,7 +10,7 @@
   <!-- CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css" />
-  
+
   <!-- Scripts -->
   <script src="src/person.js"></script>
   <script src="src/bmi_calculator.js"></script>
@@ -92,8 +92,9 @@
         person.calculate_bmi();
 
         $('#display_value').html('Your BMI is ' + person.bmiValue);
-        $('#display_message').html('and you are ' + person.bmiMessage +
-          ' <br /><img src="/img/elf-clipart-12.png" width="300" /><br />');
+        $('#display_message').html('and you are <strong>' + person.bmiMessage
+        + '</strong><br /><img src="img/' + person.bmiImage + '" width="300" />');
+          // ' <br /><img src="/img/' + obj.bmiImage + '" width="300" /><br />');
       });
     });
   </script>
