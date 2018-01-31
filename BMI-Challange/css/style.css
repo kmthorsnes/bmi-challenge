@@ -9,13 +9,3 @@ h4 {
 .container {
   padding-top: 30px;
 }
-
-.powered_by {
-  vertical-align: bottom;
-  text-align: right;
-  padding:0 25px 0 25px;
-}
-
-.powered_by img {
-  width: 120px;
-}
