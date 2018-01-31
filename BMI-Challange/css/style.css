@@ -2,11 +2,20 @@
   font-size: ;
 } */
 
-.container {
-  padding-top: 30px;
-
-}
-
 h4 {
   padding: 20px 20px 20px 0px;
+}
+
+.container {
+  padding-top: 30px;
+}
+
+.powered_by {
+  vertical-align: bottom;
+  text-align: right;
+  padding:0 25px 0 25px;
+}
+
+.powered_by img {
+  width: 120px;
 }
