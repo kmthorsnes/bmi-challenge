@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -17,6 +16,20 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="js/scripts.js"></script>
+
+<style type="text/css">
+.powered_by {
+  vertical-align: bottom;
+  text-align: right;
+  padding:0 25px 0 25px;
+}
+
+.powered_by img {
+  width: 120px;
+}
+</style>
+
 </head>
 
 <body>
@@ -33,19 +46,19 @@
           <div class="form-group">
             <label class="mr-sm-2" for="inlineFormCustomSelect">Select metric or imperial</label>
             <select name="Selection" class="form-control" id="selection">
-              <option value="metric">Metric</option>
-              <option value="imperial">Imperial</option>
+              <option data-ph-w="Weight in kg" data-ph-h="Height in cm" value="metric">Metric</option>
+              <option data-ph-w="Weight in pounds" data-ph-h="Height in feet and inches (5.10)" value="imperial">Imperial</option>
             </select>
           </div>
 
           <div class="form-row">
             <div class="col">
               <label class="mr-sm-2" for="inlineFormCustomSelect">Add your weight</label>
-              <input type="text" class="form-control" id="weight" placeholder="Weight">
+              <input type="text" class="form-control" id="weight" placeholder="Weight in kg">
             </div>
             <div class="col">
               <label class="mr-sm-2" for="inlineFormCustomSelect">Add your height</label>
-              <input type="text" class="form-control" id="height" placeholder="Height">
+              <input type="text" class="form-control" id="height" placeholder="Height in cm">
             </div>
           </div>
 
@@ -54,16 +67,16 @@
               <button type="button" class="btn btn-success btn-lg btn-block" id="calculate">Calculate</button>
             </div>
           </div>
-
-          <!-- <input type="text" id="weight" placeholder="Weight">
-        <input type="text" id="height" placeholder="Height"> -->
-
-
-          <!-- <input type="button" id="calculate" value="Calculate"> -->
         </form>
+
+        <span id="display_tips"></span>
+
       </div>
 
       <div class="col">
+        <p>
+          Your results will be displayed here
+        </p>
         <span id="display_value"></span>
         <span id="display_message"></span>
         <span id="display_image"></span>
@@ -71,34 +84,15 @@
     </div>
 
   </div>
+<div class="container">
+  <div class="row fixed-bottom">
+    <div class="col powered_by">
+      <img src="img/bollkalle.png"/>
+      <p>This app is powered by<br /><strong>BollKalle Apps Inc.</strong></p>
+    </div>
+  </div>
+</div>
 
-  <script type="text/javascript">
-    // $(document).ready(function() {
-    //   $('#weight').html(placeholder ="hello");
-    // });
-
-    $(document).ready(function() {
-      $('#calculate').click(function() {
-        var w = parseFloat($('#weight').val());
-        var h = parseFloat($('#height').val());
-        var s = document.getElementById("selection").value;
-        var person = new Person({
-          weight: w,
-          height: h,
-          selection: s
-        });
-        person.calculate_bmi();
-
-        $('#display_value').html('Your BMI is ' + person.bmiValue);
-        $('#display_message').html('and you are ' + person.bmiMessage);
-        if(person.bmiImage != undefined) {
-          $('#display_image').html('<br /><img src="img/'
-           + person.bmiImage + '" width="50%"/>');
-        }
-          // ' <br /><img src="/img/' + obj.bmiImage + '" width="300" /><br />');
-      });
-    });
-  </script>
 </body>
 
 </html>

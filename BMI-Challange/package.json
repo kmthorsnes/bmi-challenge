@@ -1,0 +1,22 @@
+{
+  "name": "bmi-challange",
+  "version": "1.0.0",
+  "description": "json-bmi-challange",
+  "main": "Gruntfile.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "coveralls": "^3.0.0",
+    "grunt": "^1.0.1"
+  },
+  "devDependencies": {
+    "grunt-coveralls": "^1.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
