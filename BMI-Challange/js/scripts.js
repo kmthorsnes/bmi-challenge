@@ -1,9 +1,9 @@
-function feetAndInchesToInches(he) {
-  let inches = (he % 1).toFixed(1);
-  let feet = (he - inches);
-  let height = ((feet * 12) + (inches * 100));
-  return height;
-}
+// function feetAndInchesToInches(he) {
+//   let inches = (he % 1).toFixed(1);
+//   let feet = (he - inches);
+//   let height = ((feet * 12) + (inches * 100));
+//   return height;
+// }
 
 $(document).ready(function() {
   document.getElementById('selection').addEventListener('change', function() {
@@ -19,9 +19,9 @@ $(document).ready(function() {
     var s = document.getElementById("selection").value;
     var w = parseFloat($('#weight').val());
     var h = parseFloat($('#height').val());
-    if (s == 'imperial') {
-      h = feetAndInchesToInches(h)
-    }
+    // if (s == 'imperial') {
+    //   h = feetAndInchesToInches(h)
+    // }
     var person = new Person({
       weight: w,
       height: h,
@@ -38,8 +38,10 @@ $(document).ready(function() {
     }
     if (person.bmiTips != undefined) {
       $('#display_tips').html(`<br /><h5>Sponsored tip for you</h5>
-      <img style="border: 1px solid #eeeeee; padding: 10px;"
-       src="img/${person.bmiTips}" width="50%"/>`);
+      <a href="${person.bmiURL}" target="_blank">
+        <img style="border: 1px solid #eeeeee; padding: 10px;"
+       src="img/${person.bmiTips}" width="50%"/>
+      </a>`);
     }
   });
 });
